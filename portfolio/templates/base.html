@@ -1,0 +1,15 @@
+{% load static %}
+{% load sass_tags %}
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ernesto Cobos - Portfolio</title>
+        <link href="{% sass_src 'cobos.scss' %}" rel="stylesheet" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    </head>
+    <body>
+        {% block content %}
+
+        {% endblock content %}
+    </body>
+</html>
