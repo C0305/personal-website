@@ -1,1 +1,0 @@
-web: gunicorn cobosio:wsgi --log-file -
