@@ -12,7 +12,9 @@ h1, h2, h3, h4, h5, h6, strong {
   color: black;
   font-family: 'Russo One', sans-serif;
   font-weight: 500; }
-
+.white {
+  color: white;
+}
 p, li, span, label, input, textarea {
   color: #4b5156;
   font-family: 'Roboto Mono', monospace; }
@@ -41,11 +43,17 @@ h5 {
 
 h6 {
   font-size: 16px; }
-
+.s-blue {
+  background-color: #191930 !important;
+}
 .s1 {
   background-color: #eaeaea;
   border-bottom: 1px solid black;
   overflow: auto; }
+
+.is-relative {
+  position: relative;
+}
 
 .s2 {
   background-color: #fff;
@@ -63,6 +71,7 @@ h6 {
   min-height: 10em; }
 
 .intro-wrapper {
+  position: relative;
   background-color: #fff;
   border: 1px solid black;
   border-radius: 5px 5px 0 0;
@@ -374,6 +383,9 @@ h6 {
     font-weight: 700;
     text-transform: none;
     transition: all .4s;
+}
+#particles canvas {
+  position: absolute;
 }
 .flex-container {
   display: flex;

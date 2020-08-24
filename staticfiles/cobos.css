@@ -41,7 +41,9 @@ h5 {
 
 h6 {
   font-size: 16px; }
-
+.s-blue {
+  background-color: #191930;
+}
 .s1 {
   background-color: #eaeaea;
   border-bottom: 1px solid black;
