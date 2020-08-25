@@ -6,7 +6,7 @@ class PortfolioSettings(models.Model):
     title = models.CharField(max_length=80)
     my_picture = models.ImageField(upload_to='portfolio/website/', blank=True)
     description = models.CharField(max_length=120)
-    about_me = models.CharField(max_length=300)
+    about_me = models.CharField(max_length=1000)
     top_expertise = models.CharField(max_length=200)
     my_resume = models.FileField(name="My Resume", blank=True)
     secondary_image = models.ImageField(upload_to='portfolio/website/', blank=True)
