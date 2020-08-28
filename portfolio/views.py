@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import PortfolioSettings, Project
 from crm.forms import LeadForm
 
@@ -16,6 +16,7 @@ def home(request):
     form = LeadForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return redirect(to='/send_email/')
 
     return render(request, 'home.html', {
         'portfolio': portfolio_settings,
@@ -23,3 +24,5 @@ def home(request):
         'featured_projects' : featured_projects,
         'form': form
     })
+def send_email(request):
+    return render(request, 'send_email.html',)

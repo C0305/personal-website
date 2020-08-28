@@ -21,5 +21,6 @@ from crm import views as crm
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', portfolio.home, name="home"),
+    path('send_email/', portfolio.send_email, name="send_email"),
     path('lead/', crm.lead, name="lead")
 ]
