@@ -1,18 +1,6 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&amp;display=swap" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&amp;family=Russo+One&amp;display=swap" rel="stylesheet">
-
-    <link href="{% static "cobos.css" %}" rel="stylesheet" type="text/css" />
-	<link id="theme-style" rel="stylesheet" type="text/css" href="{% static "cobos.css" %}">
-    <title></title>
-</head>
-<body>
+{% block content %}
     <style type="text/css">
         html, body{
             height: 100%;
@@ -44,9 +32,9 @@
         #particles {
             position: absolute;
             z-index: 10;
-            width: 100vh;
+            width: 100vw;
             height: 100vh;
-            left: -100%;
+            left: -50%;
         }
     </style>
 
@@ -55,20 +43,7 @@
         <div id="success-box" class="content-block">
             <h1>Thanks for reaching out!</h1>
             <p>Your message was successfully sent. I will do my best to get back to you in a timely manner :)</p>
-            <a id="back-btn" class="btn btn-success" href="/">BACK TO HOME PAGE</a>
+            <a id="back-btn" class="btn btn-success" href="{% url "home" %}">BACK TO HOME PAGE</a>
         </div>
     </div>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176164633-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-176164633-1');
-    </script>
-    <script src="{% static particles.min.js %}"></script>
-    <script>
-        particlesJS.load('particles', '{% static "particles.json" %}');
-    </script>
-</body>
-</html>
+{% endblock content %}

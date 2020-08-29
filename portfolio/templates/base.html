@@ -1,15 +1,29 @@
 {% load static %}
-{% load sass_tags %}
-<html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <title>Ernesto Cobos - Portfolio</title>
-        <link href="{% sass_src 'cobos.scss' %}" rel="stylesheet" type="text/css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    </head>
-    <body>
+
+
+<html><head>
+	<title>Ernesto Cobos</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <link href="{% static "cobos.css" %}" rel="stylesheet" type="text/css" />
+	<link id="theme-style" rel="stylesheet" type="text/css" href="{% static "cobos.css" %}">
+<body>
         {% block content %}
 
         {% endblock content %}
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176164633-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-176164633-1');
+        </script>
+        <script src="{% static "particles.min.js" %}"></script>
+        <script>
+            particlesJS.load('particles', '{% static "particles.json" %}');
+        </script>
     </body>
 </html>

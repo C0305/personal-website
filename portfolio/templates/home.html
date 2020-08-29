@@ -1,16 +1,8 @@
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% load static %}
 
-
-<html><head>
-	<title>Ernesto Cobos</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <link href="{% static "cobos.css" %}" rel="stylesheet" type="text/css" />
-	<link id="theme-style" rel="stylesheet" type="text/css" href="{% static "cobos.css" %}">
-<body>
-
-	<section class="s1 s-blue is-relative" >
+{% block content %}
+    <section class="s1 s-blue is-relative" >
         <div id="particles"></div>
 		<div class="main-container" >
 			<div class="greeting-wrapper">
@@ -27,7 +19,7 @@
 						<div id="dot-2" class="browser-dot"></div>
 						<div id="dot-3" class="browser-dot"></div>
 					</div>
-					
+
 
 					<ul id="navigation">
 						<li><a href="#contact-form">Contact</a></li>
@@ -122,7 +114,7 @@
 
 				</div>
 
-				
+
 {% comment %}				<div class="social-links">
 					<img id="social_img" src="images/follow.jpg">
 					<h3>Find me on Twitter &amp; Youtube</h3>
@@ -190,18 +182,4 @@
 			</form>
 		</div>
 	</section>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176164633-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-176164633-1');
-    </script>
-    <script src="{% static particles.min.js %}"></script>
-    <script>
-        particlesJS.load('particles', '{% static "particles.json" %}');
-    </script>
-</body></html>
+{% endblock %}
