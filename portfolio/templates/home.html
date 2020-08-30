@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-
+{% load thumbnail %}
 {% block content %}
     <section class="s1 s-blue is-relative" >
         <div id="particles"></div>
@@ -137,7 +137,9 @@
 				{% for project in featured_projects %}
                     <div>
                         <div class="post">
-                            <img class="thumbnail" src="{{ project.image.url }}">
+                            {% thumbnail  project.image "400x180" as im %}
+                                <img class="thumbnail" src="{{ im.url }}">
+                            {% endthumbnail %}
                             <div class="post-preview">
                                 <h6 class="post-title">{{ project.title }}</h6>
                                 <p class="post-intro">{{ project.description }}</p>
