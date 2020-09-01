@@ -28,7 +28,7 @@
 				</div>
 
 				<div class="left-column">
-					<img id="profile_pic" src="{{ portfolio.my_picture.url }}">
+					<img class="lazy" id="profile_pic" data-src="{{ portfolio.my_picture.url }}">
 					<h5 style="text-align: center;line-height: 0;"></h5>
 
 					<div id="theme-options-wrapper">
@@ -138,7 +138,7 @@
                     <div>
                         <div class="post">
                             {% thumbnail  project.image "400x180" as im %}
-                                <img class="thumbnail" src="{{ im.url }}">
+                                <img class="thumbnail lazy" data-src="{{ im.url }}">
                             {% endthumbnail %}
                             <div class="post-preview">
                                 <h6 class="post-title">{{ project.title }}</h6>

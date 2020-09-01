@@ -43,5 +43,6 @@ def home(request):
         'featured_projects' : featured_projects,
         'form': form
     })
+
 def send_email(request):
     return render(request, 'send_email.html',)
