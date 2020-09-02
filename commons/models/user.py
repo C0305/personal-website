@@ -1,6 +1,6 @@
 from django.db import models
-from cobosio.utils import img_url
-from cobosio.models import Company
+from commons.utils import img_url
+from commons.models import Company
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 
 
@@ -50,3 +50,4 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         ordering = ["-is_active"]
+        app_label = "commons"

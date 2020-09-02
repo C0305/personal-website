@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'storages',
     'portfolio',
-    'crm'
+    'crm',
+    'commons',
 
 ]
 
@@ -96,7 +97,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cobosio.wsgi.application'
-
+AUTH_USER_MODEL="commons.User"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

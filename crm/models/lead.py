@@ -9,3 +9,6 @@ class Lead(models.Model):
 
     def __str__(self):
         return f"{self.id}.- {self.name} - {self.email}: {self.subject}"
+
+    class Meta:
+        app_label = "crm"

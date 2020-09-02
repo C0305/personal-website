@@ -1,20 +1,20 @@
 import arrow
+from .tag import Tag
 from django.db import models
+from commons.utils import append_str_to
 from django.utils.translation import pgettext_lazy
+from commons.constants import INDCHOICES, COUNTRIES
 from django.utils.translation import ugettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
-from cobosio.constants import INDCHOICES, COUNTRIES
-from cobosio.models import User
-from crm.models import Tag
-from cobosio.models import Company
-from cobosio.utils import append_str_to
+
+from commons.models import Company
 
 class Account(models.Model):
 
     ACCOUNT_STATUS_CHOICE = (("open", "Open"), ("close", "Close"))
 
     name = models.CharField(pgettext_lazy("Name of Account", "Name"), max_length=64)
-    email = models.EmailField()
+    mail = models.EmailField()
     phone = PhoneNumberField(null=True)
     industry = models.CharField(
         _("Industry Type"), max_length=255, choices=INDCHOICES, blank=True, null=True
@@ -37,33 +37,23 @@ class Account(models.Model):
     )
     website = models.URLField(_("Website"), blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    created_by = models.ForeignKey(
-        User, related_name="account_created_by", on_delete=models.SET_NULL, null=True
-    )
+    created_by = models.ForeignKey('commons.User', on_delete=models.SET_NULL, null=True)
     created_on = models.DateTimeField(_("Created on"), auto_now_add=True)
     is_active = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tag, blank=True)
-    status = models.CharField(
-        choices=ACCOUNT_STATUS_CHOICE, max_length=64, default="open"
-    )
-    lead = models.ForeignKey(
-        "leads.Lead", related_name="account_leads", on_delete=models.SET_NULL, null=True
-    )
-    contact_name = models.CharField(
-        pgettext_lazy("Name of Contact", "Contact Name"), max_length=120
-    )
-    contacts = models.ManyToManyField(
-        "contacts.Contact", related_name="account_contacts"
-    )
-    company = models.ForeignKey(
-        Company, on_delete=models.SET_NULL, null=True, blank=True
-    )
+    status = models.CharField(choices=ACCOUNT_STATUS_CHOICE, max_length=64, default="open")
+    lead = models.ForeignKey("crm.Lead", on_delete=models.SET_NULL, null=True,)
+    contact_name = models.CharField(pgettext_lazy("Name of Contact", "Contact Name"), max_length=120)
+    contacts = models.ManyToManyField("crm.Contact",)
+    company = models.ForeignKey('commons.Company', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
         ordering = ["-created_on"]
+        app_label = "crm"
+
 
     def get_complete_address(self):
         """Concatenates complete address."""

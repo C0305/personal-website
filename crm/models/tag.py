@@ -7,3 +7,6 @@ class Tag(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
+
+    class Meta:
+        app_label = "crm"

@@ -1,5 +1,5 @@
 from django.db import models
-from cobosio.constants import COUNTRIES
+from commons.constants import COUNTRIES
 from django.utils.translation import ugettext_lazy as _
 
 class Address(models.Model):
@@ -11,6 +11,8 @@ class Address(models.Model):
         _("Post/Zip-code"), max_length=64, blank=True, null=True
     )
     country = models.CharField(max_length=3, choices=COUNTRIES, blank=True, null=True)
+    class Meta:
+        app_label = "crm"
 
     def __str__(self):
         return self.city if self.city else ""

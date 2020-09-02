@@ -1,10 +1,10 @@
 from django.db import models
-from crm.models import Account
-from crm.models import Contact
+from.account import Account
+from .contact import Contact
 
 class Email(models.Model):
     from_account = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
-    recipients = models.ManyToManyField(Contact)
+    recipients = models.ManyToManyField('crm.Contact')
     message_subject = models.TextField(null=True)
     message_body = models.TextField(null=True)
     timezone = models.CharField(max_length=100, default="UTC")
@@ -16,3 +16,6 @@ class Email(models.Model):
 
     def __str__(self):
         return self.message_subject
+
+    class Meta:
+        app_label = "crm"
