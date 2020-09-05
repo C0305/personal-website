@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'storages',
     'portfolio',
-    'crm'
+    'crm',
+    'commons',
 
 ]
 
@@ -69,9 +70,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.gzip.GZipMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 if os.getenv('DJANGO_ENV') == 'production':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -96,7 +94,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cobosio.wsgi.application'
-
+AUTH_USER_MODEL="commons.User"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
