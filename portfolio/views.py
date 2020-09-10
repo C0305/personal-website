@@ -44,7 +44,7 @@ def home(request):
             'featured_projects': featured_projects,
             'form': form
         })
-    except:
+    except(Exception):
         return HttpResponse("No content")
 
 @cache_page(129600)
