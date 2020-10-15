@@ -1,0 +1,40 @@
+version: "3.8"
+   
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DB_PORT=5432
+      - DB_HOST=db
+      - DB_NAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_USERNAME=postgres
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_STORAGE_BUCKET_NAME
+      - AWS_LOCATION=us-east-1
+      - DJANGO_DEBUG=True
+      - DJANGO_SECRET_KEY
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_PASSWORD=123456
+      - REDIS_URL=redis://redis:6379/personal-website
+  redis:
+    container_name: redis
+    image: redis:3.2.0
+    ports:
+      - '6379:6379'
+
