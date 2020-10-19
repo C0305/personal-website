@@ -6,7 +6,6 @@ from crm import models as crm
 
 admin.site.register(portfolio.Project)
 admin.site.register(portfolio.TechnologiesStack)
-admin.site.register(portfolio.PortfolioSettings)
+admin.site.register(portfolio.Setting)
 admin.site.register(portfolio.SocialNetwork)
-
 admin.site.register(crm.Lead)

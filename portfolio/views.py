@@ -1,16 +1,17 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.views.decorators.cache import cache_page
-from .models import PortfolioSettings, Project
+from .models import Setting, Project
+from commons.models import SeoObject
 from crm.forms import LeadForm
 from django.core.mail import EmailMessage
 from threading import Thread
 
 # Create your views here.
-@cache_page(60 * 15)
 def home(request):
     try:
         portfolio_settings = PortfolioSettings.objects.get(is_default=True)
         featured_projects = Project.objects.filter(featured=True)
+        seo = portfolio_settings.seo_object
         tech_stack = []
         for value in portfolio_settings.technologiesstack_set.all():
             if len(tech_stack) != 0 and len(tech_stack[-1]) < 5:
@@ -40,6 +41,7 @@ def home(request):
 
         return render(request, 'home.html', {
             'portfolio': portfolio_settings,
+            'seo': seo,
             'tech_stack': tech_stack,
             'featured_projects': featured_projects,
             'form': form

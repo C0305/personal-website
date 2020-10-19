@@ -1,8 +1,9 @@
 from django.db import models
+from commons import models as commons
 
 # Create your models here.
 
-class PortfolioSettings(models.Model):
+class Setting(models.Model):
     title = models.CharField(max_length=80)
     my_picture = models.ImageField(upload_to='portfolio/website/', blank=True)
     description = models.CharField(max_length=120)
@@ -11,14 +12,16 @@ class PortfolioSettings(models.Model):
     my_resume = models.FileField(name="My Resume", blank=True)
     secondary_image = models.ImageField(upload_to='portfolio/website/', blank=True)
     is_default = models.BooleanField(default=False)
+    seo_object = models.OneToOneField('commons.SeoObject', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f"{self.id}: {self.title}"
 
 
+
 class TechnologiesStack(models.Model):
     name = models.CharField(max_length=30)
-    portfolio = models.ForeignKey(PortfolioSettings,on_delete=models.CASCADE)
+    portfolio = models.ForeignKey(Setting, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
