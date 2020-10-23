@@ -1,0 +1,48 @@
+.button {
+    max-width: 200px;
+    padding-top: 0;
+    padding-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
+
+  &-container {
+    text-align: center;
+    margin: 0 auto;
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: bolder;
+    }
+  }
+  &-module {
+    border-radius: 100px;
+    font-family: Open Sans,sans-serif;
+    font-size: 14px;
+    line-height: 40px;
+    background-color: #222;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    margin: 0 auto;
+    max-width: 100%;
+    white-space: nowrap;
+    word-break: keep-all;
+    transition: all 0.3s ease 0s;
+
+    &:after, .button-module:before {
+      content: "";
+      display: block;
+      width: 20px;
+    }
+
+    &:hover {
+      color: #fff;
+      background-color: #2222228c;
+      font-style: normal;
+      font-weight: 700;
+      text-transform: none;
+    }
+  }
+}

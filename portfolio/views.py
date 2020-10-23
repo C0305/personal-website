@@ -7,7 +7,7 @@ from threading import Thread
 
 # Create your views here.
 def home(request):
-    try:
+    #try:
         portfolio_settings = Setting.objects.get(is_default=True)
         featured_projects = Project.objects.filter(featured=True)
         seo = portfolio_settings.seo_object
@@ -45,8 +45,8 @@ def home(request):
             'featured_projects': featured_projects,
             'form': form
         })
-    except:
-        return HttpResponse("No content")
+    #except:
+    #    return HttpResponse("No content")
 
 @cache_page(129600)
 def send_email(request):
