@@ -32,7 +32,7 @@ class SocialNetwork(models.Model):
         ("TW",'Twitter'),
         ("GH",'GitHub'),
         ("MD",'Medium'),
-        ("LI",'Medium'),
+        ("LI",'Linkedin'),
         ("EM",'E-Mail'),
     )
 
