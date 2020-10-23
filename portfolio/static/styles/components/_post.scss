@@ -1,0 +1,28 @@
+.post {
+  border: 1px solid black;
+  @include box-shadow;
+
+  &-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 320px);
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+
+  &-preview {
+    background-color: #fff;
+    padding: 15px;
+  }
+
+  &-title {
+    color: black;
+    margin: 0;
+  }
+
+  &-intro {
+    color: #4b5156;
+    font-size: 14px;
+  }
+
+}

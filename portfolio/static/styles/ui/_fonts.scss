@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap");
+
+h1, h2, h3, h4, h5, h6, strong {
+  color: black;
+  font-family: 'Russo One', sans-serif;
+  font-weight: 500;
+}
+
+p, li, span, label, input, textarea {
+  color: #4b5156;
+  font-family: 'Roboto Mono', monospace;
+}
+
+a {
+  text-decoration: none;
+  color: #17a2b8;
+}
+
+ul {
+  list-style: none;
+}
+
+$h-size: (h1: 56,h2:36,h3:28,h4:24,h5:20,h6:16);
+@each $h, $size in $h-size {
+  #{$h} {
+    font-size:#{$size}px
+  }
+}

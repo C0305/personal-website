@@ -1,4 +1,5 @@
 {% load static %}
+{% load sass_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +26,7 @@
     <meta property="twitter:image" content="{{ seo.image.url|default_if_none:" " }}">
     <meta name="twitter:site" content="@cobosxyz">
     <meta name="twitter:creator" content="@cobosxyz">
-
-    <link id="theme-style" rel="stylesheet" type="text/css" href="{% static "cobos.css" %}">
-
+    <link id="theme-style" type="text/css" href="{% sass_src 'styles/cobos-style.scss' %}" rel="stylesheet" media="screen">
     <link rel="prefetch" href="https://www.google-analytics.com"/>
     <link rel="prefetch" href="https://prod-cobos-io.s3.amazonaws.com"/>
 </head>
